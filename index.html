@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Alex Henschel</title>
+<style>
+  :root{--bg:#0a0a0f;--surface:#13131a;--surface2:#1c1c26;--border:#2a2a38;--accent:#6c63ff;--accent2:#00d4aa;--text:#e8e8f0;--muted:#888899;--card:#16161f}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6}
+
+  /* NAV */
+  nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(10,10,15,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem}
+  .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
+  .nav-logo{font-weight:700;font-size:1.1rem;color:var(--text);letter-spacing:.5px}
+  .nav-logo span{color:var(--accent)}
+  .nav-links{display:flex;gap:1.5rem;list-style:none}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:.9rem;transition:color .2s}
+  .nav-links a:hover{color:var(--accent2)}
+  .nav-cta{background:var(--accent);color:#fff;border:none;padding:.45rem 1.1rem;border-radius:6px;font-size:.85rem;cursor:pointer;transition:opacity .2s}
+  .nav-cta:hover{opacity:.85}
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;align-items:center;padding:80px 2rem 4rem;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(108,99,255,.12) 0%,transparent 70%);pointer-events:none}
+  .hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(0,212,170,.08) 0%,transparent 70%);pointer-events:none}
+  .hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+  .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(108,99,255,.12);border:1px solid rgba(108,99,255,.3);padding:.35rem .85rem;border-radius:20px;font-size:.8rem;color:var(--accent);margin-bottom:1.25rem}
+  .hero-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent2);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;line-height:1.15;margin-bottom:.75rem}
+  h1 .grad{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .hero-sub{font-size:1.1rem;color:var(--muted);max-width:480px;margin-bottom:2rem;line-height:1.7}
+  .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+  .btn-primary{background:linear-gradient(135deg,var(--accent),#8b85ff);color:#fff;border:none;padding:.75rem 1.75rem;border-radius:8px;font-size:.95rem;cursor:pointer;transition:transform .2s,box-shadow .2s;font-weight:600}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(108,99,255,.4)}
+  .btn-secondary{background:transparent;color:var(--text);border:1px solid var(--border);padding:.75rem 1.75rem;border-radius:8px;font-size:.95rem;cursor:pointer;transition:border-color .2s,color .2s}
+  .btn-secondary:hover{border-color:var(--accent2);color:var(--accent2)}
+  .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem}
+  .stat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center}
+  .stat-num{font-size:1.6rem;font-weight:800;color:var(--accent2)}
+  .stat-label{font-size:.75rem;color:var(--muted);margin-top:.2rem}
+  .hero-visual{position:relative}
+  .hero-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.75rem;position:relative;overflow:hidden}
+  .hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+  .hc-title{font-size:.75rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem}
+  .skill-tag{display:inline-block;background:rgba(108,99,255,.1);border:1px solid rgba(108,99,255,.2);color:var(--accent);padding:.3rem .75rem;border-radius:20px;font-size:.78rem;margin:.25rem .2rem;transition:background .2s}
+  .skill-tag:hover{background:rgba(108,99,255,.2)}
+  .skill-tag.green{background:rgba(0,212,170,.08);border-color:rgba(0,212,170,.2);color:var(--accent2)}
+
+  /* SECTIONS */
+  section{padding:5rem 2rem}
+  .section-inner{max-width:1100px;margin:0 auto}
+  .section-label{font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+  .section-title{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;margin-bottom:.75rem}
+  .section-sub{color:var(--muted);max-width:560px;margin-bottom:3rem;line-height:1.7}
+  .divider{width:60px;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:2px;margin-bottom:1.5rem}
+
+  /* EXPERIENCE */
+  #experience{background:var(--surface)}
+  .exp-timeline{position:relative;padding-left:2rem}
+  .exp-timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),var(--accent2),transparent)}
+  .exp-item{position:relative;margin-bottom:2.5rem;padding-left:1.5rem}
+  .exp-item::before{content:'';position:absolute;left:-2.15rem;top:.4rem;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);box-shadow:0 0 10px rgba(108,99,255,.5)}
+  .exp-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem;margin-bottom:.5rem}
+  .exp-role{font-size:1.1rem;font-weight:700}
+  .exp-company{color:var(--accent2);font-weight:600}
+  .exp-date{font-size:.82rem;color:var(--muted);background:var(--surface2);padding:.25rem .7rem;border-radius:20px}
+  .exp-desc{color:var(--muted);font-size:.9rem;margin-bottom:.75rem;line-height:1.7}
+  .exp-bullets{list-style:none}
+  .exp-bullets li{font-size:.88rem;color:var(--muted);padding:.3rem 0;padding-left:1rem;position:relative;line-height:1.6}
+  .exp-bullets li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:.8rem}
+
+  /* SUCCESS STORIES */
+  .stories-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
+  .story-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;transition:transform .2s,border-color .2s;cursor:pointer;position:relative;overflow:hidden}
+  .story-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform .3s}
+  .story-card:hover{transform:translateY(-4px);border-color:var(--accent)}
+  .story-card:hover::before{transform:scaleX(1)}
+  .story-meta{display:flex;gap:.5rem;align-items:center;margin-bottom:.75rem}
+  .story-company{font-size:.75rem;color:var(--accent2);background:rgba(0,212,170,.08);padding:.2rem .6rem;border-radius:10px;border:1px solid rgba(0,212,170,.15)}
+  .story-title{font-size:1rem;font-weight:700;margin-bottom:.5rem;line-height:1.4}
+  .story-excerpt{font-size:.85rem;color:var(--muted);line-height:1.6;margin-bottom:1rem}
+  .story-stat{font-size:.82rem;font-weight:700;color:var(--accent2)}
+  .story-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.75rem}
+  .story-tag{font-size:.72rem;color:var(--muted);background:var(--surface2);padding:.2rem .55rem;border-radius:8px}
+
+  /* THOUGHT LEADERSHIP */
+  #thought-leadership{background:var(--surface)}
+  .tl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+  .tl-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;transition:transform .2s,border-color .2s}
+  .tl-card:hover{transform:translateY(-3px);border-color:var(--accent2)}
+  .tl-date{font-size:.75rem;color:var(--muted);margin-bottom:.5rem}
+  .tl-title{font-size:1rem;font-weight:700;margin-bottom:.5rem;line-height:1.4}
+  .tl-excerpt{font-size:.85rem;color:var(--muted);line-height:1.6}
+  .tl-read{display:inline-flex;align-items:center;gap:.4rem;color:var(--accent);font-size:.82rem;margin-top:.75rem;text-decoration:none;font-weight:600}
+  .tl-read:hover{color:var(--accent2)}
+
+  /* TOOLS */
+  .tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.25rem}
+  .tool-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;transition:transform .2s,border-color .2s}
+  .tool-card:hover{transform:translateY(-3px);border-color:var(--accent)}
+  .tool-icon{font-size:1.75rem;margin-bottom:.75rem}
+  .tool-name{font-size:.95rem;font-weight:700;margin-bottom:.4rem}
+  .tool-desc{font-size:.82rem;color:var(--muted);line-height:1.5;margin-bottom:.75rem}
+  .tool-tags{display:flex;flex-wrap:wrap;gap:.3rem}
+  .tool-tag{font-size:.7rem;color:var(--accent);background:rgba(108,99,255,.1);padding:.2rem .5rem;border-radius:6px}
+  .tool-status{display:inline-flex;align-items:center;gap:.35rem;font-size:.72rem;margin-top:.5rem}
+  .tool-status.live::before{content:'';width:6px;height:6px;border-radius:50%;background:#00d4aa;animation:pulse 2s infinite}
+  .tool-status.wip::before{content:'';width:6px;height:6px;border-radius:50%;background:#f59e0b}
+  .tool-status.live{color:var(--accent2)}
+  .tool-status.wip{color:#f59e0b}
+
+  /* INTEREST CAPTURE */
+  #contact{background:linear-gradient(135deg,rgba(108,99,255,.08),rgba(0,212,170,.05))}
+  .contact-inner{max-width:640px;margin:0 auto;text-align:center}
+  .contact-inner .section-title{margin-bottom:.5rem}
+  .contact-inner .section-sub{margin:0 auto 2.5rem}
+  .contact-form{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem;text-align:left}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+  .form-group{margin-bottom:1rem}
+  .form-group label{display:block;font-size:.82rem;color:var(--muted);margin-bottom:.4rem;font-weight:500}
+  .form-group input,.form-group textarea,.form-group select{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;color:var(--text);font-size:.9rem;outline:none;transition:border-color .2s;font-family:inherit}
+  .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--accent)}
+  .form-group select option{background:var(--surface2)}
+  .form-group textarea{resize:vertical;min-height:100px}
+  .form-submit{width:100%;background:linear-gradient(135deg,var(--accent),#8b85ff);color:#fff;border:none;padding:.85rem;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;transition:opacity .2s,transform .2s}
+  .form-submit:hover{opacity:.9;transform:translateY(-1px)}
+  .form-note{text-align:center;font-size:.78rem;color:var(--muted);margin-top:.75rem}
+  .contact-links{display:flex;justify-content:center;gap:1.5rem;margin-top:2rem}
+  .contact-link{color:var(--muted);text-decoration:none;font-size:.85rem;transition:color .2s;display:flex;align-items:center;gap:.4rem}
+  .contact-link:hover{color:var(--accent2)}
+
+  /* ADMIN PANEL */
+  .admin-toggle{position:fixed;bottom:1.5rem;right:1.5rem;z-index:200;background:var(--surface);border:1px solid var(--border);border-radius:50%;width:48px;height:48px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.2rem;transition:border-color .2s;box-shadow:0 4px 20px rgba(0,0,0,.4)}
+  .admin-toggle:hover{border-color:var(--accent)}
+  .admin-panel{position:fixed;bottom:5rem;right:1.5rem;z-index:200;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.25rem;width:360px;box-shadow:0 20px 60px rgba(0,0,0,.5);display:none}
+  .admin-panel.open{display:block;animation:slideUp .2s ease}
+  @keyframes slideUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+  .admin-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem}
+  .admin-title{font-size:.9rem;font-weight:700;color:var(--accent)}
+  .admin-close{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1rem}
+  .admin-pw{display:flex;gap:.5rem;margin-bottom:.75rem}
+  .admin-pw input{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:.5rem .75rem;color:var(--text);font-size:.85rem;outline:none}
+  .admin-pw button{background:var(--accent);color:#fff;border:none;border-radius:6px;padding:.5rem .85rem;font-size:.82rem;cursor:pointer}
+  .admin-locked{text-align:center;padding:.5rem;font-size:.8rem;color:var(--muted)}
+  .admin-unlocked{display:none}
+  .admin-unlocked.show{display:block}
+  .admin-prompt-area{position:relative}
+  .admin-prompt{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;color:var(--text);font-size:.85rem;resize:none;min-height:80px;outline:none;font-family:inherit;transition:border-color .2s}
+  .admin-prompt:focus{border-color:var(--accent)}
+  .admin-send{width:100%;margin-top:.5rem;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;border-radius:8px;padding:.6rem;font-size:.85rem;font-weight:600;cursor:pointer;transition:opacity .2s}
+  .admin-send:hover{opacity:.9}
+  .admin-send:disabled{opacity:.5;cursor:not-allowed}
+  .admin-response{margin-top:.75rem;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.75rem;font-size:.8rem;color:var(--muted);line-height:1.5;max-height:180px;overflow-y:auto;display:none}
+  .admin-response.show{display:block}
+  .admin-hint{font-size:.73rem;color:var(--muted);margin-top:.5rem;line-height:1.4}
+
+  /* MISC */
+  footer{background:var(--surface);border-top:1px solid var(--border);padding:2rem;text-align:center;color:var(--muted);font-size:.82rem}
+  .success-msg{display:none;background:rgba(0,212,170,.1);border:1px solid rgba(0,212,170,.3);border-radius:8px;padding:.75rem 1rem;color:var(--accent2);font-size:.85rem;margin-top:.75rem;text-align:center}
+
+  @media(max-width:768px){
+    .hero-inner{grid-template-columns:1fr}
+    .hero-visual{display:none}
+    .form-row{grid-template-columns:1fr}
+    .nav-links{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Alex <span>Henschel</span></div>
+    <ul class="nav-links">
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#stories">Stories</a></li>
+      <li><a href="#thought-leadership">Insights</a></li>
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Let's Connect</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">Digital Growth & AI Discovery Leader</div>
+      <h1>Alex<br><span class="grad">Henschel</span></h1>
+      <p class="hero-sub">15+ years helping organizations grow, adapt, and lead in an AI-driven world — across SEO, CRO, digital operations, and emerging discovery ecosystems.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="document.getElementById('stories').scrollIntoView({behavior:'smooth'})">View My Work</button>
+        <button class="btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get In Touch</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">22%</div><div class="stat-label">AI Share of Voice Achieved</div></div>
+        <div class="stat"><div class="stat-num">91%</div><div class="stat-label">Inbound Lead Lift</div></div>
+        <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Years Experience</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hc-title">Core Expertise</div>
+        <div id="skill-tags">
+          <span class="skill-tag">AI Search & GEO</span>
+          <span class="skill-tag">SEO Strategy</span>
+          <span class="skill-tag green">Executive Influence</span>
+          <span class="skill-tag">CRO & Experimentation</span>
+          <span class="skill-tag green">Web Operations</span>
+          <span class="skill-tag">Digital Transformation</span>
+          <span class="skill-tag">Cross-Functional Leadership</span>
+          <span class="skill-tag green">Content Strategy</span>
+          <span class="skill-tag">Organic Acquisition</span>
+          <span class="skill-tag">Analytics & Reporting</span>
+          <span class="skill-tag green">Vendor Management</span>
+          <span class="skill-tag">Forecasting</span>
+        </div>
+        <div style="margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--border)">
+          <div class="hc-title">Currently</div>
+          <p style="font-size:.85rem;color:var(--muted)">Open to senior digital marketing, SEO/GEO director, and integrated marketing leadership roles.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label">Career History</div>
+    <h2 class="section-title">Work Experience</h2>
+    <div class="divider"></div>
+    <div class="exp-timeline" id="exp-timeline">
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div><span class="exp-role">Digital Marketing Manager</span> · <span class="exp-company">Boulevard</span></div>
+          <span class="exp-date">2022 – 2026</span>
+        </div>
+        <p class="exp-desc">Led digital growth, AI-discovery strategy, and web operations across SEO, CRO, content, and acquisition in a high-growth SaaS environment. Reported to CMO and operated as organic growth director.</p>
+        <ul class="exp-bullets">
+          <li>Grew AI share of voice from ~4% to 22% through GEO, structured data, Reddit visibility, and ecosystem discoverability initiatives</li>
+          <li>Led 700+ page website redesign and migration in 4 months — CVR improved from 2.2% to 4.2%, driving a 91% lift in inbound leads</li>
+          <li>Built a high-velocity CRO experimentation program contributing to a 36% compounded lift in organic conversions</li>
+          <li>Managed ~$500K annual operational spend across dev resources, SEO tooling, CMS, experimentation, and vendor relationships</li>
+          <li>Influenced CMO to expand SEO into a broader ecosystem discoverability strategy spanning AI search, PR, social, and video</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div><span class="exp-role">SEO Manager</span> · <span class="exp-company">2U Inc.</span></div>
+          <span class="exp-date">2016 – 2021</span>
+        </div>
+        <p class="exp-desc">Led enterprise SEO and digital growth across 30+ university partner websites supporting enrollment and acquisition goals.</p>
+        <ul class="exp-bullets">
+          <li>Drove 14% annual organic growth across Yale, USC, UNC, Syracuse, Baylor, and Rice partnerships</li>
+          <li>Managed and mentored a team of 5 SEO analysts; consistently exceeded quarterly performance goals</li>
+          <li>Grew share of voice from 14% to 29% by launching and scaling third-party review and supporting content sites</li>
+          <li>Became a trusted strategic advisor at Syracuse and Rice — rebuilding stakeholder trust and accelerating approvals</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div><span class="exp-role">Marketing Team Lead</span> · <span class="exp-company">Learn</span></div>
+          <span class="exp-date">2015 – 2016</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Grew newsletter subscriptions by 80% in 6 months through audience engagement and signup optimization</li>
+          <li>Improved workshop sign-up conversions by 18% through UX and landing page optimization</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div><span class="exp-role">Marketing Coordinator</span> · <span class="exp-company">Goodwin University</span></div>
+          <span class="exp-date">2013 – 2014</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Supported enrollment marketing, website updates, and campaign coordination for prospective student acquisition</li>
+        </ul>
+      </div>
+
+      <div class="exp-item" style="margin-bottom:0">
+        <div class="exp-header">
+          <div><span class="exp-role">MBA, Management</span> · <span class="exp-company">University of Hartford</span></div>
+          <span class="exp-date">2018</span>
+        </div>
+        <p class="exp-desc" style="margin-bottom:0">B.S. Business Administration – Marketing · University of Hartford · 2011</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SUCCESS STORIES -->
+<section id="stories">
+  <div class="section-inner">
+    <div class="section-label">Proof Points</div>
+    <h2 class="section-title">Success Stories</h2>
+    <p class="section-sub">Real outcomes from real challenges — from AI discovery transformation to enterprise migration and team leadership.</p>
+    <div class="stories-grid" id="stories-grid">
+
+      <div class="story-card">
+        <div class="story-meta"><span class="story-company">Boulevard</span></div>
+        <div class="story-title">AI Discovery Transformation & Executive Influence</div>
+        <div class="story-excerpt">Recognized a shift in consumer discovery behavior toward AI-generated answers before most organizations adapted. Built and sold a cross-functional AI-discoverability strategy directly to the CMO, reshaping the company's entire acquisition approach.</div>
+        <div class="story-stat">📈 AI Share of Voice: 4% → 22%</div>
+        <div class="story-tags"><span class="story-tag">AI Search</span><span class="story-tag">GEO</span><span class="story-tag">Executive Influence</span><span class="story-tag">Org Change</span></div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-meta"><span class="story-company">Boulevard</span></div>
+        <div class="story-title">700-Page Website Redesign & Conversion Recovery</div>
+        <div class="story-excerpt">Served as operational PM on a full-scale redesign and migration of 700+ pages — completed in 4 months while maintaining acquisition continuity across active marketing programs.</div>
+        <div class="story-stat">📈 CVR: 2.2% → 4.2% · +91% Inbound Leads</div>
+        <div class="story-tags"><span class="story-tag">Web Migration</span><span class="story-tag">CRO</span><span class="story-tag">Project Leadership</span></div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-meta"><span class="story-company">Boulevard</span></div>
+        <div class="story-title">High-Velocity CRO Experimentation Program</div>
+        <div class="story-excerpt">Built and operationalized a testing framework from the ground up — 5–10 experiments per quarter — including multi-step form redesign that lifted CVR from 8% to 12%.</div>
+        <div class="story-stat">📈 36% Compounded Lift in Organic Conversions</div>
+        <div class="story-tags"><span class="story-tag">CRO</span><span class="story-tag">Experimentation</span><span class="story-tag">UX</span></div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-meta"><span class="story-company">Boulevard</span></div>
+        <div class="story-title">Enterprise Digital Operations & Governance</div>
+        <div class="story-excerpt">Built scalable governance systems for web ops, legal compliance, accessibility, QA, and development prioritization — preventing a projected 200+ hour implementation backlog.</div>
+        <div class="story-stat">⚙️ $500K Annual Operational Budget Managed</div>
+        <div class="story-tags"><span class="story-tag">Digital Ops</span><span class="story-tag">Governance</span><span class="story-tag">Compliance</span></div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-meta"><span class="story-company">2U Inc.</span></div>
+        <div class="story-title">Enterprise SEO Portfolio Growth & Team Leadership</div>
+        <div class="story-excerpt">Led SEO strategy across 30+ university websites while managing and coaching a team of 5 analysts. Built coaching structures that consistently earned near-perfect upward review scores.</div>
+        <div class="story-stat">📈 14% Annual Organic Growth · 30+ Sites</div>
+        <div class="story-tags"><span class="story-tag">Enterprise SEO</span><span class="story-tag">Team Leadership</span><span class="story-tag">Coaching</span></div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-meta"><span class="story-company">2U Inc.</span></div>
+        <div class="story-title">Enterprise Advisory & Relationship Recovery</div>
+        <div class="story-excerpt">Rebuilt fractured stakeholder relationships at Syracuse and Rice by shifting from SEO vendor to trusted strategic advisor — removing referral roadblocks and accelerating approvals.</div>
+        <div class="story-stat">🤝 SOV: 14% → 29% across competitive categories</div>
+        <div class="story-tags"><span class="story-tag">Stakeholder Trust</span><span class="story-tag">Advisory</span><span class="story-tag">Influence</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- THOUGHT LEADERSHIP -->
+<section id="thought-leadership">
+  <div class="section-inner">
+    <div class="section-label">Perspective</div>
+    <h2 class="section-title">Thought Leadership</h2>
+    <p class="section-sub">Insights on AI-driven discovery, digital strategy, and organizational transformation.</p>
+    <div class="tl-grid" id="tl-grid">
+
+      <div class="tl-card">
+        <div class="tl-date">2025</div>
+        <div class="tl-title">Why AI Search Changes Everything (And What Most Teams Are Missing)</div>
+        <div class="tl-excerpt">Search fragmentation isn't coming — it's here. Consumer discovery now spans AI answers, Reddit, video, and community platforms. Traditional SEO programs built for rankings are being left behind.</div>
+        <a class="tl-read" href="#">Read More →</a>
+      </div>
+
+      <div class="tl-card">
+        <div class="tl-date">2025</div>
+        <div class="tl-title">From SEO to Ecosystem Discoverability: The Strategic Shift</div>
+        <div class="tl-excerpt">How I convinced executive leadership to stop thinking about search rankings and start thinking about brand presence across every surface a buyer might encounter before making a decision.</div>
+        <a class="tl-read" href="#">Read More →</a>
+      </div>
+
+      <div class="tl-card">
+        <div class="tl-date">2024</div>
+        <div class="tl-title">Building AI-Readable Content at Scale</div>
+        <div class="tl-excerpt">Structured data, entity optimization, and LLM citation patterns — a practical playbook for making your content visible in the next generation of search experiences.</div>
+        <a class="tl-read" href="#">Read More →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS & AGENTS -->
+<section id="tools">
+  <div class="section-inner">
+    <div class="section-label">Built by Me</div>
+    <h2 class="section-title">Tools & Agents</h2>
+    <p class="section-sub">AI-powered tools and automation workflows I've built to solve real marketing and operations problems.</p>
+    <div class="tools-grid" id="tools-grid">
+
+      <div class="tool-card">
+        <div class="tool-icon">🤖</div>
+        <div class="tool-name">GEO Audit Agent</div>
+        <div class="tool-desc">Automated agent that analyzes a website's AI-discoverability posture — checking structured data, entity coverage, LLM citation potential, and content readability for AI systems.</div>
+        <div class="tool-tags"><span class="tool-tag">GEO</span><span class="tool-tag">AI Search</span><span class="tool-tag">Automation</span></div>
+        <div class="tool-status live">Live</div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">📊</div>
+        <div class="tool-name">Content Performance Classifier</div>
+        <div class="tool-desc">AI workflow built with AirOps that classifies content by funnel stage, conversion influence, and AI-retrieval potential — enabling smarter editorial prioritization.</div>
+        <div class="tool-tags"><span class="tool-tag">Content</span><span class="tool-tag">Analytics</span><span class="tool-tag">AirOps</span></div>
+        <div class="tool-status live">Live</div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">⚡</div>
+        <div class="tool-name">SEO Brief Generator</div>
+        <div class="tool-desc">Automated content brief generator that pulls search intent data, competitor gaps, and AI-answer patterns to produce publication-ready briefs in minutes.</div>
+        <div class="tool-tags"><span class="tool-tag">SEO</span><span class="tool-tag">Content Ops</span><span class="tool-tag">AI</span></div>
+        <div class="tool-status wip">In Development</div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">🔍</div>
+        <div class="tool-name">Competitor Comparison Analyzer</div>
+        <div class="tool-desc">Scrapes and analyzes competitor comparison pages to surface positioning gaps, keyword opportunities, and AI-citation angles for new comparison content.</div>
+        <div class="tool-tags"><span class="tool-tag">Competitive Intel</span><span class="tool-tag">SEO</span><span class="tool-tag">Research</span></div>
+        <div class="tool-status wip">In Development</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- INTEREST CAPTURE -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-inner">
+      <div class="section-label">Let's Talk</div>
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-sub">Whether you're looking for a marketing leader, want to collaborate, or just want to talk AI search strategy — I'd love to connect.</p>
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" id="fname" placeholder="Alex"/></div>
+          <div class="form-group"><label>Last Name</label><input type="text" id="lname" placeholder="Smith"/></div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" id="email" placeholder="you@company.com"/></div>
+        <div class="form-group">
+          <label>I'm reaching out about…</label>
+          <select id="reason">
+            <option value="">Select a reason</option>
+            <option>Job Opportunity</option>
+            <option>Consulting / Advisory</option>
+            <option>Collaboration</option>
+            <option>Speaking / Thought Leadership</option>
+            <option>Just saying hi</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea id="message" placeholder="Tell me a bit about what you have in mind…"></textarea></div>
+        <button class="form-submit" onclick="submitForm()">Send Message</button>
+        <div class="success-msg" id="success-msg">✅ Message sent! I'll be in touch soon.</div>
+        <p class="form-note">No spam. Ever. I respond to every message personally.</p>
+      </div>
+      <div class="contact-links">
+        <a class="contact-link" href="https://linkedin.com/in/alexander-henschel" target="_blank">💼 LinkedIn</a>
+        <a class="contact-link" href="mailto:alexhenschel1@gmail.com">✉️ Email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Alex Henschel · Simsbury, CT · Built with AI · <a href="https://alexhenschel.com" style="color:var(--accent)">alexhenschel.com</a></p>
+</footer>
+
+<!-- ADMIN TOGGLE -->
+<button class="admin-toggle" onclick="toggleAdmin()" title="Site Admin">⚙️</button>
+<div class="admin-panel" id="admin-panel">
+  <div class="admin-header">
+    <span class="admin-title">⚙️ Site Admin</span>
+    <button class="admin-close" onclick="toggleAdmin()">✕</button>
+  </div>
+  <div id="admin-lock">
+    <p class="admin-locked">Enter password to update site content via AI prompt</p>
+    <div class="admin-pw">
+      <input type="password" id="admin-pw-input" placeholder="Password" onkeydown="if(event.key==='Enter')checkPw()"/>
+      <button onclick="checkPw()">Unlock</button>
+    </div>
+    <p id="pw-error" style="font-size:.75rem;color:#f87171;display:none;text-align:center">Incorrect password</p>
+  </div>
+  <div class="admin-unlocked" id="admin-unlocked">
+    <div class="admin-prompt-area">
+      <textarea class="admin-prompt" id="admin-prompt" placeholder='Try: "Add a new success story about launching a podcast" or "Update my tagline to: AI strategist & builder"'></textarea>
+    </div>
+    <button class="admin-send" id="admin-send-btn" onclick="sendAdminPrompt()">✨ Update Site with AI</button>
+    <div class="admin-response" id="admin-response"></div>
+    <p class="admin-hint">💡 You can update any section: hero text, skills, stories, thought leadership posts, tools, or work experience.</p>
+  </div>
+</div>
+
+<script>
+const ADMIN_PW = 'alex2026';
+
+function toggleAdmin(){
+  const p = document.getElementById('admin-panel');
+  p.classList.toggle('open');
+}
+
+function checkPw(){
+  const v = document.getElementById('admin-pw-input').value;
+  if(v === ADMIN_PW){
+    document.getElementById('admin-lock').style.display='none';
+    document.getElementById('admin-unlocked').classList.add('show');
+  } else {
+    document.getElementById('pw-error').style.display='block';
+  }
+}
+
+async function sendAdminPrompt(){
+  const prompt = document.getElementById('admin-prompt').value.trim();
+  if(!prompt) return;
+  const btn = document.getElementById('admin-send-btn');
+  const resp = document.getElementById('admin-response');
+  btn.disabled = true;
+  btn.textContent = '⏳ Updating…';
+  resp.className = 'admin-response show';
+  resp.textContent = 'Thinking…';
+
+  const siteSnapshot = {
+    heroTagline: document.querySelector('.hero-badge').textContent,
+    heroSub: document.querySelector('.hero-sub').textContent,
+    skills: Array.from(document.querySelectorAll('#skill-tags .skill-tag')).map(t=>t.textContent),
+    stats: Array.from(document.querySelectorAll('.stat')).map(s=>({num:s.querySelector('.stat-num').textContent,label:s.querySelector('.stat-label').textContent})),
+    storyCount: document.querySelectorAll('.story-card').length,
+    tlCount: document.querySelectorAll('.tl-card').length,
+    toolCount: document.querySelectorAll('.tool-card').length
+  };
+
+  const systemPrompt = `You are an AI assistant helping Alex Henschel update his personal website. 
+Alex is a digital marketing and AI search leader with 15+ years experience. 
+Current site snapshot: ${JSON.stringify(siteSnapshot)}
+
+When given a user's prompt to update the site, respond with ONLY a JSON object (no markdown, no explanation) with this structure:
+{
+  "action": "update" | "add",
+  "section": "hero" | "skills" | "stats" | "story" | "thought_leadership" | "tool" | "experience",
+  "message": "A friendly confirmation message explaining what was changed",
+  "updates": {
+    // For hero: { "tagline": "...", "sub": "..." }
+    // For skills: { "tags": ["tag1","tag2",...] }
+    // For stats: { "stats": [{"num":"22%","label":"..."},...] }
+    // For story (add): { "company": "...", "title": "...", "excerpt": "...", "stat": "...", "tags": ["..."] }
+    // For thought_leadership (add): { "date": "2025", "title": "...", "excerpt": "..." }
+    // For tool (add): { "icon": "emoji", "name": "...", "desc": "...", "tags": ["..."], "status": "live"|"wip" }
+  }
+}`;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:1000,
+        system: systemPrompt,
+        messages:[{role:'user',content:prompt}]
+      })
+    });
+    const data = await res.json();
+    const raw = data.content?.[0]?.text || '';
+    let parsed;
+    try { parsed = JSON.parse(raw.replace(/```json|```/g,'').trim()); }
+    catch(e){ resp.textContent = 'Could not parse AI response. Try rephrasing your prompt.'; btn.disabled=false; btn.textContent='✨ Update Site with AI'; return; }
+
+    applyUpdate(parsed);
+    resp.textContent = '✅ ' + (parsed.message || 'Site updated!');
+  } catch(e){
+    resp.textContent = 'Error connecting to AI. Please try again.';
+  }
+  btn.disabled=false;
+  btn.textContent='✨ Update Site with AI';
+}
+
+function applyUpdate(parsed){
+  const {section, updates} = parsed;
+  if(!updates) return;
+
+  if(section==='hero'){
+    if(updates.tagline) document.querySelector('.hero-badge').textContent = updates.tagline;
+    if(updates.sub) document.querySelector('.hero-sub').textContent = updates.sub;
+  }
+  else if(section==='skills' && updates.tags){
+    const ct = document.getElementById('skill-tags');
+    const colors = ['','','green','','green','','','green','','','green',''];
+    ct.innerHTML = updates.tags.map((t,i)=>`<span class="skill-tag ${colors[i%colors.length]||''}">${t}</span>`).join('');
+  }
+  else if(section==='stats' && updates.stats){
+    const els = document.querySelectorAll('.stat');
+    updates.stats.forEach((s,i)=>{
+      if(els[i]){
+        els[i].querySelector('.stat-num').textContent = s.num;
+        els[i].querySelector('.stat-label').textContent = s.label;
+      }
+    });
+  }
+  else if(section==='story' && updates.title){
+    const u = updates;
+    const card = document.createElement('div');
+    card.className='story-card';
+    card.innerHTML=`<div class="story-meta"><span class="story-company">${u.company||''}</span></div>
+      <div class="story-title">${u.title}</div>
+      <div class="story-excerpt">${u.excerpt||''}</div>
+      <div class="story-stat">${u.stat||''}</div>
+      <div class="story-tags">${(u.tags||[]).map(t=>`<span class="story-tag">${t}</span>`).join('')}</div>`;
+    document.getElementById('stories-grid').appendChild(card);
+  }
+  else if(section==='thought_leadership' && updates.title){
+    const u = updates;
+    const card = document.createElement('div');
+    card.className='tl-card';
+    card.innerHTML=`<div class="tl-date">${u.date||'2025'}</div>
+      <div class="tl-title">${u.title}</div>
+      <div class="tl-excerpt">${u.excerpt||''}</div>
+      <a class="tl-read" href="#">Read More →</a>`;
+    document.getElementById('tl-grid').appendChild(card);
+  }
+  else if(section==='tool' && updates.name){
+    const u = updates;
+    const card = document.createElement('div');
+    card.className='tool-card';
+    card.innerHTML=`<div class="tool-icon">${u.icon||'🔧'}</div>
+      <div class="tool-name">${u.name}</div>
+      <div class="tool-desc">${u.desc||''}</div>
+      <div class="tool-tags">${(u.tags||[]).map(t=>`<span class="tool-tag">${t}</span>`).join('')}</div>
+      <div class="tool-status ${u.status||'wip'}">${u.status==='live'?'Live':'In Development'}</div>`;
+    document.getElementById('tools-grid').appendChild(card);
+  }
+}
+
+function submitForm(){
+  const fn=document.getElementById('fname').value;
+  const em=document.getElementById('email').value;
+  if(!fn||!em){alert('Please fill in your name and email.');return;}
+  document.getElementById('success-msg').style.display='block';
+  ['fname','lname','email','reason','message'].forEach(id=>document.getElementById(id).value='');
+}
+</script>
+</body>
+</html>
