@@ -9,7 +9,6 @@
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6}
-
   /* NAV */
   nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(10,10,15,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem}
   .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
@@ -20,7 +19,6 @@
   .nav-links a:hover{color:var(--accent2)}
   .nav-cta{background:var(--accent);color:#fff;border:none;padding:.45rem 1.1rem;border-radius:6px;font-size:.85rem;cursor:pointer;transition:opacity .2s}
   .nav-cta:hover{opacity:.85}
-
   /* HERO */
   .hero{min-height:100vh;display:flex;align-items:center;padding:80px 2rem 4rem;position:relative;overflow:hidden}
   .hero::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(108,99,255,.12) 0%,transparent 70%);pointer-events:none}
@@ -48,7 +46,6 @@
   .skill-tag{display:inline-block;background:rgba(108,99,255,.1);border:1px solid rgba(108,99,255,.2);color:var(--accent);padding:.3rem .75rem;border-radius:20px;font-size:.78rem;margin:.25rem .2rem;transition:background .2s}
   .skill-tag:hover{background:rgba(108,99,255,.2)}
   .skill-tag.green{background:rgba(0,212,170,.08);border-color:rgba(0,212,170,.2);color:var(--accent2)}
-
   /* SECTIONS */
   section{padding:5rem 2rem}
   .section-inner{max-width:1100px;margin:0 auto}
@@ -56,7 +53,6 @@
   .section-title{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;margin-bottom:.75rem}
   .section-sub{color:var(--muted);max-width:560px;margin-bottom:3rem;line-height:1.7}
   .divider{width:60px;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:2px;margin-bottom:1.5rem}
-
   /* EXPERIENCE */
   #experience{background:var(--surface)}
   .exp-timeline{position:relative;padding-left:2rem}
@@ -71,7 +67,6 @@
   .exp-bullets{list-style:none}
   .exp-bullets li{font-size:.88rem;color:var(--muted);padding:.3rem 0;padding-left:1rem;position:relative;line-height:1.6}
   .exp-bullets li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:.8rem}
-
   /* SUCCESS STORIES */
   .stories-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
   .story-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;transition:transform .2s,border-color .2s;cursor:pointer;position:relative;overflow:hidden}
@@ -85,7 +80,6 @@
   .story-stat{font-size:.82rem;font-weight:700;color:var(--accent2)}
   .story-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.75rem}
   .story-tag{font-size:.72rem;color:var(--muted);background:var(--surface2);padding:.2rem .55rem;border-radius:8px}
-
   /* THOUGHT LEADERSHIP */
   #thought-leadership{background:var(--surface)}
   .tl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
@@ -96,7 +90,6 @@
   .tl-excerpt{font-size:.85rem;color:var(--muted);line-height:1.6}
   .tl-read{display:inline-flex;align-items:center;gap:.4rem;color:var(--accent);font-size:.82rem;margin-top:.75rem;text-decoration:none;font-weight:600}
   .tl-read:hover{color:var(--accent2)}
-
   /* TOOLS */
   .tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.25rem}
   .tool-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;transition:transform .2s,border-color .2s}
@@ -111,7 +104,6 @@
   .tool-status.wip::before{content:'';width:6px;height:6px;border-radius:50%;background:#f59e0b}
   .tool-status.live{color:var(--accent2)}
   .tool-status.wip{color:#f59e0b}
-
   /* INTEREST CAPTURE */
   #contact{background:linear-gradient(135deg,rgba(108,99,255,.08),rgba(0,212,170,.05))}
   .contact-inner{max-width:640px;margin:0 auto;text-align:center}
@@ -131,7 +123,6 @@
   .contact-links{display:flex;justify-content:center;gap:1.5rem;margin-top:2rem}
   .contact-link{color:var(--muted);text-decoration:none;font-size:.85rem;transition:color .2s;display:flex;align-items:center;gap:.4rem}
   .contact-link:hover{color:var(--accent2)}
-
   /* ADMIN PANEL */
   .admin-toggle{position:fixed;bottom:1.5rem;right:1.5rem;z-index:200;background:var(--surface);border:1px solid var(--border);border-radius:50%;width:48px;height:48px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.2rem;transition:border-color .2s;box-shadow:0 4px 20px rgba(0,0,0,.4)}
   .admin-toggle:hover{border-color:var(--accent)}
@@ -156,11 +147,9 @@
   .admin-response{margin-top:.75rem;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.75rem;font-size:.8rem;color:var(--muted);line-height:1.5;max-height:180px;overflow-y:auto;display:none}
   .admin-response.show{display:block}
   .admin-hint{font-size:.73rem;color:var(--muted);margin-top:.5rem;line-height:1.4}
-
   /* MISC */
   footer{background:var(--surface);border-top:1px solid var(--border);padding:2rem;text-align:center;color:var(--muted);font-size:.82rem}
   .success-msg{display:none;background:rgba(0,212,170,.1);border:1px solid rgba(0,212,170,.3);border-radius:8px;padding:.75rem 1rem;color:var(--accent2);font-size:.85rem;margin-top:.75rem;text-align:center}
-
   @media(max-width:768px){
     .hero-inner{grid-template-columns:1fr}
     .hero-visual{display:none}
@@ -170,7 +159,6 @@
 </style>
 </head>
 <body>
-
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
@@ -185,12 +173,11 @@
     <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Let's Connect</button>
   </div>
 </nav>
-
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <div>
-      <div class="hero-badge">Digital Growth & AI Discovery Leader</div>
+      <div class="hero-badge">AI-Era Marketing Leader & Builder</div>
       <h1>Alex<br><span class="grad">Henschel</span></h1>
       <p class="hero-sub">15+ years helping organizations grow, adapt, and lead in an AI-driven world — across SEO, CRO, digital operations, and emerging discovery ecosystems.</p>
       <div class="hero-actions">
@@ -228,7 +215,6 @@
     </div>
   </div>
 </section>
-
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="section-inner">
@@ -236,7 +222,6 @@
     <h2 class="section-title">Work Experience</h2>
     <div class="divider"></div>
     <div class="exp-timeline" id="exp-timeline">
-
       <div class="exp-item">
         <div class="exp-header">
           <div><span class="exp-role">Digital Marketing Manager</span> · <span class="exp-company">Boulevard</span></div>
@@ -251,7 +236,6 @@
           <li>Influenced CMO to expand SEO into a broader ecosystem discoverability strategy spanning AI search, PR, social, and video</li>
         </ul>
       </div>
-
       <div class="exp-item">
         <div class="exp-header">
           <div><span class="exp-role">SEO Manager</span> · <span class="exp-company">2U Inc.</span></div>
@@ -265,7 +249,6 @@
           <li>Became a trusted strategic advisor at Syracuse and Rice — rebuilding stakeholder trust and accelerating approvals</li>
         </ul>
       </div>
-
       <div class="exp-item">
         <div class="exp-header">
           <div><span class="exp-role">Marketing Team Lead</span> · <span class="exp-company">Learn</span></div>
@@ -276,7 +259,6 @@
           <li>Improved workshop sign-up conversions by 18% through UX and landing page optimization</li>
         </ul>
       </div>
-
       <div class="exp-item">
         <div class="exp-header">
           <div><span class="exp-role">Marketing Coordinator</span> · <span class="exp-company">Goodwin University</span></div>
@@ -286,7 +268,6 @@
           <li>Supported enrollment marketing, website updates, and campaign coordination for prospective student acquisition</li>
         </ul>
       </div>
-
       <div class="exp-item" style="margin-bottom:0">
         <div class="exp-header">
           <div><span class="exp-role">MBA, Management</span> · <span class="exp-company">University of Hartford</span></div>
@@ -294,11 +275,9 @@
         </div>
         <p class="exp-desc" style="margin-bottom:0">B.S. Business Administration – Marketing · University of Hartford · 2011</p>
       </div>
-
     </div>
   </div>
 </section>
-
 <!-- SUCCESS STORIES -->
 <section id="stories">
   <div class="section-inner">
@@ -306,7 +285,6 @@
     <h2 class="section-title">Success Stories</h2>
     <p class="section-sub">Real outcomes from real challenges — from AI discovery transformation to enterprise migration and team leadership.</p>
     <div class="stories-grid" id="stories-grid">
-
       <div class="story-card">
         <div class="story-meta"><span class="story-company">Boulevard</span></div>
         <div class="story-title">AI Discovery Transformation & Executive Influence</div>
@@ -314,7 +292,6 @@
         <div class="story-stat">📈 AI Share of Voice: 4% → 22%</div>
         <div class="story-tags"><span class="story-tag">AI Search</span><span class="story-tag">GEO</span><span class="story-tag">Executive Influence</span><span class="story-tag">Org Change</span></div>
       </div>
-
       <div class="story-card">
         <div class="story-meta"><span class="story-company">Boulevard</span></div>
         <div class="story-title">700-Page Website Redesign & Conversion Recovery</div>
@@ -322,7 +299,6 @@
         <div class="story-stat">📈 CVR: 2.2% → 4.2% · +91% Inbound Leads</div>
         <div class="story-tags"><span class="story-tag">Web Migration</span><span class="story-tag">CRO</span><span class="story-tag">Project Leadership</span></div>
       </div>
-
       <div class="story-card">
         <div class="story-meta"><span class="story-company">Boulevard</span></div>
         <div class="story-title">High-Velocity CRO Experimentation Program</div>
@@ -330,7 +306,6 @@
         <div class="story-stat">📈 36% Compounded Lift in Organic Conversions</div>
         <div class="story-tags"><span class="story-tag">CRO</span><span class="story-tag">Experimentation</span><span class="story-tag">UX</span></div>
       </div>
-
       <div class="story-card">
         <div class="story-meta"><span class="story-company">Boulevard</span></div>
         <div class="story-title">Enterprise Digital Operations & Governance</div>
@@ -338,7 +313,6 @@
         <div class="story-stat">⚙️ $500K Annual Operational Budget Managed</div>
         <div class="story-tags"><span class="story-tag">Digital Ops</span><span class="story-tag">Governance</span><span class="story-tag">Compliance</span></div>
       </div>
-
       <div class="story-card">
         <div class="story-meta"><span class="story-company">2U Inc.</span></div>
         <div class="story-title">Enterprise SEO Portfolio Growth & Team Leadership</div>
@@ -346,7 +320,6 @@
         <div class="story-stat">📈 14% Annual Organic Growth · 30+ Sites</div>
         <div class="story-tags"><span class="story-tag">Enterprise SEO</span><span class="story-tag">Team Leadership</span><span class="story-tag">Coaching</span></div>
       </div>
-
       <div class="story-card">
         <div class="story-meta"><span class="story-company">2U Inc.</span></div>
         <div class="story-title">Enterprise Advisory & Relationship Recovery</div>
@@ -354,11 +327,9 @@
         <div class="story-stat">🤝 SOV: 14% → 29% across competitive categories</div>
         <div class="story-tags"><span class="story-tag">Stakeholder Trust</span><span class="story-tag">Advisory</span><span class="story-tag">Influence</span></div>
       </div>
-
     </div>
   </div>
 </section>
-
 <!-- THOUGHT LEADERSHIP -->
 <section id="thought-leadership">
   <div class="section-inner">
@@ -366,32 +337,27 @@
     <h2 class="section-title">Thought Leadership</h2>
     <p class="section-sub">Insights on AI-driven discovery, digital strategy, and organizational transformation.</p>
     <div class="tl-grid" id="tl-grid">
-
       <div class="tl-card">
         <div class="tl-date">2025</div>
         <div class="tl-title">Why AI Search Changes Everything (And What Most Teams Are Missing)</div>
         <div class="tl-excerpt">Search fragmentation isn't coming — it's here. Consumer discovery now spans AI answers, Reddit, video, and community platforms. Traditional SEO programs built for rankings are being left behind.</div>
         <a class="tl-read" href="#">Read More →</a>
       </div>
-
       <div class="tl-card">
         <div class="tl-date">2025</div>
         <div class="tl-title">From SEO to Ecosystem Discoverability: The Strategic Shift</div>
         <div class="tl-excerpt">How I convinced executive leadership to stop thinking about search rankings and start thinking about brand presence across every surface a buyer might encounter before making a decision.</div>
         <a class="tl-read" href="#">Read More →</a>
       </div>
-
       <div class="tl-card">
         <div class="tl-date">2024</div>
         <div class="tl-title">Building AI-Readable Content at Scale</div>
         <div class="tl-excerpt">Structured data, entity optimization, and LLM citation patterns — a practical playbook for making your content visible in the next generation of search experiences.</div>
         <a class="tl-read" href="#">Read More →</a>
       </div>
-
     </div>
   </div>
 </section>
-
 <!-- TOOLS & AGENTS -->
 <section id="tools">
   <div class="section-inner">
@@ -399,7 +365,6 @@
     <h2 class="section-title">Tools & Agents</h2>
     <p class="section-sub">AI-powered tools and automation workflows I've built to solve real marketing and operations problems.</p>
     <div class="tools-grid" id="tools-grid">
-
       <div class="tool-card">
         <div class="tool-icon">🤖</div>
         <div class="tool-name">GEO Audit Agent</div>
@@ -407,7 +372,6 @@
         <div class="tool-tags"><span class="tool-tag">GEO</span><span class="tool-tag">AI Search</span><span class="tool-tag">Automation</span></div>
         <div class="tool-status live">Live</div>
       </div>
-
       <div class="tool-card">
         <div class="tool-icon">📊</div>
         <div class="tool-name">Content Performance Classifier</div>
@@ -415,7 +379,6 @@
         <div class="tool-tags"><span class="tool-tag">Content</span><span class="tool-tag">Analytics</span><span class="tool-tag">AirOps</span></div>
         <div class="tool-status live">Live</div>
       </div>
-
       <div class="tool-card">
         <div class="tool-icon">⚡</div>
         <div class="tool-name">SEO Brief Generator</div>
@@ -423,7 +386,6 @@
         <div class="tool-tags"><span class="tool-tag">SEO</span><span class="tool-tag">Content Ops</span><span class="tool-tag">AI</span></div>
         <div class="tool-status wip">In Development</div>
       </div>
-
       <div class="tool-card">
         <div class="tool-icon">🔍</div>
         <div class="tool-name">Competitor Comparison Analyzer</div>
@@ -431,11 +393,9 @@
         <div class="tool-tags"><span class="tool-tag">Competitive Intel</span><span class="tool-tag">SEO</span><span class="tool-tag">Research</span></div>
         <div class="tool-status wip">In Development</div>
       </div>
-
     </div>
   </div>
 </section>
-
 <!-- INTEREST CAPTURE -->
 <section id="contact">
   <div class="section-inner">
@@ -472,11 +432,9 @@
     </div>
   </div>
 </section>
-
 <footer>
   <p>© 2026 Alex Henschel · Simsbury, CT · Built with AI · <a href="https://alexhenschel.com" style="color:var(--accent)">alexhenschel.com</a></p>
 </footer>
-
 <!-- ADMIN TOGGLE -->
 <button class="admin-toggle" onclick="toggleAdmin()" title="Site Admin">⚙️</button>
 <div class="admin-panel" id="admin-panel">
@@ -501,15 +459,12 @@
     <p class="admin-hint">💡 You can update any section: hero text, skills, stories, thought leadership posts, tools, or work experience.</p>
   </div>
 </div>
-
 <script>
 const ADMIN_PW = 'alex2026';
-
 function toggleAdmin(){
   const p = document.getElementById('admin-panel');
   p.classList.toggle('open');
 }
-
 function checkPw(){
   const v = document.getElementById('admin-pw-input').value;
   if(v === ADMIN_PW){
@@ -519,7 +474,6 @@ function checkPw(){
     document.getElementById('pw-error').style.display='block';
   }
 }
-
 async function sendAdminPrompt(){
   const prompt = document.getElementById('admin-prompt').value.trim();
   if(!prompt) return;
@@ -529,7 +483,6 @@ async function sendAdminPrompt(){
   btn.textContent = '⏳ Updating…';
   resp.className = 'admin-response show';
   resp.textContent = 'Thinking…';
-
   const siteSnapshot = {
     heroTagline: document.querySelector('.hero-badge').textContent,
     heroSub: document.querySelector('.hero-sub').textContent,
@@ -539,11 +492,9 @@ async function sendAdminPrompt(){
     tlCount: document.querySelectorAll('.tl-card').length,
     toolCount: document.querySelectorAll('.tool-card').length
   };
-
-  const systemPrompt = `You are an AI assistant helping Alex Henschel update his personal website. 
-Alex is a digital marketing and AI search leader with 15+ years experience. 
+  const systemPrompt = `You are an AI assistant helping Alex Henschel update his personal website.
+Alex is a digital marketing and AI search leader with 15+ years experience.
 Current site snapshot: ${JSON.stringify(siteSnapshot)}
-
 When given a user's prompt to update the site, respond with ONLY a JSON object (no markdown, no explanation) with this structure:
 {
   "action": "update" | "add",
@@ -558,7 +509,6 @@ When given a user's prompt to update the site, respond with ONLY a JSON object (
     // For tool (add): { "icon": "emoji", "name": "...", "desc": "...", "tags": ["..."], "status": "live"|"wip" }
   }
 }`;
-
   try {
     const res = await fetch('https://api.anthropic.com/v1/messages',{
       method:'POST',
@@ -575,7 +525,6 @@ When given a user's prompt to update the site, respond with ONLY a JSON object (
     let parsed;
     try { parsed = JSON.parse(raw.replace(/```json|```/g,'').trim()); }
     catch(e){ resp.textContent = 'Could not parse AI response. Try rephrasing your prompt.'; btn.disabled=false; btn.textContent='✨ Update Site with AI'; return; }
-
     applyUpdate(parsed);
     resp.textContent = '✅ ' + (parsed.message || 'Site updated!');
   } catch(e){
@@ -584,11 +533,9 @@ When given a user's prompt to update the site, respond with ONLY a JSON object (
   btn.disabled=false;
   btn.textContent='✨ Update Site with AI';
 }
-
 function applyUpdate(parsed){
   const {section, updates} = parsed;
   if(!updates) return;
-
   if(section==='hero'){
     if(updates.tagline) document.querySelector('.hero-badge').textContent = updates.tagline;
     if(updates.sub) document.querySelector('.hero-sub').textContent = updates.sub;
@@ -640,7 +587,6 @@ function applyUpdate(parsed){
     document.getElementById('tools-grid').appendChild(card);
   }
 }
-
 async function submitForm(){
   const fn=document.getElementById('fname').value.trim();
   const ln=document.getElementById('lname').value.trim();
