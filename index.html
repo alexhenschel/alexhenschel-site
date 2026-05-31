@@ -641,12 +641,31 @@ function applyUpdate(parsed){
   }
 }
 
-function submitForm(){
-  const fn=document.getElementById('fname').value;
-  const em=document.getElementById('email').value;
+async function submitForm(){
+  const fn=document.getElementById('fname').value.trim();
+  const ln=document.getElementById('lname').value.trim();
+  const em=document.getElementById('email').value.trim();
+  const reason=document.getElementById('reason').value;
+  const msg=document.getElementById('message').value.trim();
   if(!fn||!em){alert('Please fill in your name and email.');return;}
-  document.getElementById('success-msg').style.display='block';
-  ['fname','lname','email','reason','message'].forEach(id=>document.getElementById(id).value='');
+  const btn=document.querySelector('.form-submit');
+  btn.textContent='Sending…';btn.disabled=true;
+  try{
+    const res=await fetch('https://formspree.io/f/xzdwqkwa',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({name:`${fn} ${ln}`,email:em,reason,message:msg})
+    });
+    if(res.ok){
+      document.getElementById('success-msg').style.display='block';
+      ['fname','lname','email','reason','message'].forEach(id=>document.getElementById(id).value='');
+    } else {
+      alert('Something went wrong. Please try again or email alexhenschel1@gmail.com directly.');
+    }
+  } catch(e){
+    alert('Could not send message. Please email alexhenschel1@gmail.com directly.');
+  }
+  btn.textContent='Send Message';btn.disabled=false;
 }
 </script>
 </body>
