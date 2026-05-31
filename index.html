@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Alex Henschel</title>
 <style>
-  :root{--bg:#0a0a0f;--surface:#13131a;--surface2:#1c1c26;--border:#2a2a38;--accent:#6c63ff;--accent2:#00d4aa;--text:#e8e8f0;--muted:#888899;--card:#16161f}
+  :root{--bg:#0b1929;--surface:#112236;--surface2:#1a3048;--border:#264762;--accent:#3d7ab5;--accent2:#c49a3c;--text:#e8edf3;--muted:#7a9ab8;--card:#0f2034}
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6}
@@ -17,22 +17,22 @@
   .nav-links{display:flex;gap:1.5rem;list-style:none}
   .nav-links a{color:var(--muted);text-decoration:none;font-size:.9rem;transition:color .2s}
   .nav-links a:hover{color:var(--accent2)}
-  .nav-cta{background:var(--accent);color:#fff;border:none;padding:.45rem 1.1rem;border-radius:6px;font-size:.85rem;cursor:pointer;transition:opacity .2s}
+  .nav-cta{background:var(--accent);color:#fff;border:none;padding:.45rem 1.1rem;border-radius:6px;font-size:.85rem;cursor:pointer;transition:opacity .2s;font-weight:600;letter-spacing:.3px}
   .nav-cta:hover{opacity:.85}
   /* HERO */
   .hero{min-height:100vh;display:flex;align-items:center;padding:80px 2rem 4rem;position:relative;overflow:hidden}
-  .hero::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(108,99,255,.12) 0%,transparent 70%);pointer-events:none}
-  .hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(0,212,170,.08) 0%,transparent 70%);pointer-events:none}
+  .hero::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(61,122,181,.14) 0%,transparent 70%);pointer-events:none}
+  .hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(196,154,60,.08) 0%,transparent 70%);pointer-events:none}
   .hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-  .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(108,99,255,.12);border:1px solid rgba(108,99,255,.3);padding:.35rem .85rem;border-radius:20px;font-size:.8rem;color:var(--accent);margin-bottom:1.25rem}
+  .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(61,122,181,.12);border:1px solid rgba(61,122,181,.3);padding:.35rem .85rem;border-radius:20px;font-size:.8rem;color:var(--accent);margin-bottom:1.25rem}
   .hero-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent2);animation:pulse 2s infinite}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
   h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;line-height:1.15;margin-bottom:.75rem}
-  h1 .grad{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  h1 .grad{background:linear-gradient(135deg,var(--accent),#6aabdc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
   .hero-sub{font-size:1.1rem;color:var(--muted);max-width:480px;margin-bottom:2rem;line-height:1.7}
   .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
-  .btn-primary{background:linear-gradient(135deg,var(--accent),#8b85ff);color:#fff;border:none;padding:.75rem 1.75rem;border-radius:8px;font-size:.95rem;cursor:pointer;transition:transform .2s,box-shadow .2s;font-weight:600}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(108,99,255,.4)}
+  .btn-primary{background:linear-gradient(135deg,var(--accent),#5a9fd4);color:#fff;border:none;padding:.75rem 1.75rem;border-radius:8px;font-size:.95rem;cursor:pointer;transition:transform .2s,box-shadow .2s;font-weight:600}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(61,122,181,.4)}
   .btn-secondary{background:transparent;color:var(--text);border:1px solid var(--border);padding:.75rem 1.75rem;border-radius:8px;font-size:.95rem;cursor:pointer;transition:border-color .2s,color .2s}
   .btn-secondary:hover{border-color:var(--accent2);color:var(--accent2)}
   .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem}
@@ -41,11 +41,11 @@
   .stat-label{font-size:.75rem;color:var(--muted);margin-top:.2rem}
   .hero-visual{position:relative}
   .hero-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.75rem;position:relative;overflow:hidden}
-  .hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+  .hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:.85}
   .hc-title{font-size:.75rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem}
-  .skill-tag{display:inline-block;background:rgba(108,99,255,.1);border:1px solid rgba(108,99,255,.2);color:var(--accent);padding:.3rem .75rem;border-radius:20px;font-size:.78rem;margin:.25rem .2rem;transition:background .2s}
-  .skill-tag:hover{background:rgba(108,99,255,.2)}
-  .skill-tag.green{background:rgba(0,212,170,.08);border-color:rgba(0,212,170,.2);color:var(--accent2)}
+  .skill-tag{display:inline-block;background:rgba(61,122,181,.12);border:1px solid rgba(61,122,181,.25);color:var(--accent);padding:.3rem .75rem;border-radius:20px;font-size:.78rem;margin:.25rem .2rem;transition:background .2s}
+  .skill-tag:hover{background:rgba(61,122,181,.22)}
+  .skill-tag.green{background:rgba(196,154,60,.1);border-color:rgba(196,154,60,.25);color:var(--accent2)}
   /* SECTIONS */
   section{padding:5rem 2rem}
   .section-inner{max-width:1100px;margin:0 auto}
@@ -58,9 +58,10 @@
   .exp-timeline{position:relative;padding-left:2rem}
   .exp-timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),var(--accent2),transparent)}
   .exp-item{position:relative;margin-bottom:2.5rem;padding-left:1.5rem}
-  .exp-item::before{content:'';position:absolute;left:-2.15rem;top:.4rem;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);box-shadow:0 0 10px rgba(108,99,255,.5)}
+  .exp-item::before{content:'';position:absolute;left:-2.15rem;top:.4rem;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);box-shadow:0 0 10px rgba(61,122,181,.5)}
   .exp-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem;margin-bottom:.5rem}
   .exp-role{font-size:1.1rem;font-weight:700}
+  .exp-actual-title{font-size:.78rem;color:var(--muted);font-style:italic;margin-top:.15rem}
   .exp-company{color:var(--accent2);font-weight:600}
   .exp-date{font-size:.82rem;color:var(--muted);background:var(--surface2);padding:.25rem .7rem;border-radius:20px}
   .exp-desc{color:var(--muted);font-size:.9rem;margin-bottom:.75rem;line-height:1.7}
@@ -70,11 +71,11 @@
   /* SUCCESS STORIES */
   .stories-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
   .story-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;transition:transform .2s,border-color .2s;cursor:pointer;position:relative;overflow:hidden}
-  .story-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform .3s}
+  .story-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform .3s;opacity:.9}
   .story-card:hover{transform:translateY(-4px);border-color:var(--accent)}
   .story-card:hover::before{transform:scaleX(1)}
   .story-meta{display:flex;gap:.5rem;align-items:center;margin-bottom:.75rem}
-  .story-company{font-size:.75rem;color:var(--accent2);background:rgba(0,212,170,.08);padding:.2rem .6rem;border-radius:10px;border:1px solid rgba(0,212,170,.15)}
+  .story-company{font-size:.75rem;color:var(--accent2);background:rgba(196,154,60,.1);padding:.2rem .6rem;border-radius:10px;border:1px solid rgba(196,154,60,.2)}
   .story-title{font-size:1rem;font-weight:700;margin-bottom:.5rem;line-height:1.4}
   .story-excerpt{font-size:.85rem;color:var(--muted);line-height:1.6;margin-bottom:1rem}
   .story-stat{font-size:.82rem;font-weight:700;color:var(--accent2)}
@@ -98,14 +99,14 @@
   .tool-name{font-size:.95rem;font-weight:700;margin-bottom:.4rem}
   .tool-desc{font-size:.82rem;color:var(--muted);line-height:1.5;margin-bottom:.75rem}
   .tool-tags{display:flex;flex-wrap:wrap;gap:.3rem}
-  .tool-tag{font-size:.7rem;color:var(--accent);background:rgba(108,99,255,.1);padding:.2rem .5rem;border-radius:6px}
+  .tool-tag{font-size:.7rem;color:var(--accent);background:rgba(61,122,181,.12);padding:.2rem .5rem;border-radius:6px}
   .tool-status{display:inline-flex;align-items:center;gap:.35rem;font-size:.72rem;margin-top:.5rem}
   .tool-status.live::before{content:'';width:6px;height:6px;border-radius:50%;background:#00d4aa;animation:pulse 2s infinite}
   .tool-status.wip::before{content:'';width:6px;height:6px;border-radius:50%;background:#f59e0b}
   .tool-status.live{color:var(--accent2)}
   .tool-status.wip{color:#f59e0b}
   /* INTEREST CAPTURE */
-  #contact{background:linear-gradient(135deg,rgba(108,99,255,.08),rgba(0,212,170,.05))}
+  #contact{background:linear-gradient(135deg,rgba(61,122,181,.08),rgba(196,154,60,.05))}
   .contact-inner{max-width:640px;margin:0 auto;text-align:center}
   .contact-inner .section-title{margin-bottom:.5rem}
   .contact-inner .section-sub{margin:0 auto 2.5rem}
@@ -117,7 +118,7 @@
   .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--accent)}
   .form-group select option{background:var(--surface2)}
   .form-group textarea{resize:vertical;min-height:100px}
-  .form-submit{width:100%;background:linear-gradient(135deg,var(--accent),#8b85ff);color:#fff;border:none;padding:.85rem;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;transition:opacity .2s,transform .2s}
+  .form-submit{width:100%;background:linear-gradient(135deg,var(--accent),#5a9fd4);color:#fff;border:none;padding:.85rem;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;transition:opacity .2s,transform .2s}
   .form-submit:hover{opacity:.9;transform:translateY(-1px)}
   .form-note{text-align:center;font-size:.78rem;color:var(--muted);margin-top:.75rem}
   .contact-links{display:flex;justify-content:center;gap:1.5rem;margin-top:2rem}
@@ -141,7 +142,7 @@
   .admin-prompt-area{position:relative}
   .admin-prompt{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;color:var(--text);font-size:.85rem;resize:none;min-height:80px;outline:none;font-family:inherit;transition:border-color .2s}
   .admin-prompt:focus{border-color:var(--accent)}
-  .admin-send{width:100%;margin-top:.5rem;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;border-radius:8px;padding:.6rem;font-size:.85rem;font-weight:600;cursor:pointer;transition:opacity .2s}
+  .admin-send{width:100%;margin-top:.5rem;background:linear-gradient(135deg,var(--accent),#5a9fd4);color:#fff;border:none;border-radius:8px;padding:.6rem;font-size:.85rem;font-weight:600;cursor:pointer;transition:opacity .2s}
   .admin-send:hover{opacity:.9}
   .admin-send:disabled{opacity:.5;cursor:not-allowed}
   .admin-response{margin-top:.75rem;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.75rem;font-size:.8rem;color:var(--muted);line-height:1.5;max-height:180px;overflow-y:auto;display:none}
@@ -165,6 +166,7 @@
     <div class="nav-logo">Alex <span>Henschel</span></div>
     <ul class="nav-links">
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
       <li><a href="#stories">Stories</a></li>
       <li><a href="#thought-leadership">Insights</a></li>
       <li><a href="#tools">Tools</a></li>
@@ -179,7 +181,7 @@
     <div>
       <div class="hero-badge">AI-Era Marketing Leader & Builder</div>
       <h1>Alex<br><span class="grad">Henschel</span></h1>
-      <p class="hero-sub">15+ years helping organizations grow, adapt, and lead in an AI-driven world — across SEO, CRO, digital operations, and emerging discovery ecosystems.</p>
+      <p class="hero-sub">Organic Growth Director and AI Search Strategist with 15+ years driving results across SaaS and higher education. Deep expertise at the intersection of enterprise SEO, GEO, CRO, and AI-driven discovery. One of the few marketers who saw AI search coming early and has the outcomes to prove it.</p>
       <div class="hero-actions">
         <button class="btn-primary" onclick="document.getElementById('stories').scrollIntoView({behavior:'smooth'})">View My Work</button>
         <button class="btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get In Touch</button>
@@ -191,6 +193,13 @@
       </div>
     </div>
     <div class="hero-visual">
+      <!-- HEADSHOT -->
+      <div style="display:flex;justify-content:center;margin-bottom:1.25rem">
+        <div id="headshot-container" style="width:120px;height:120px;border-radius:50%;border:3px solid var(--accent);box-shadow:0 0 24px rgba(61,122,181,.3);overflow:hidden;background:var(--surface2);display:flex;align-items:center;justify-content:center">
+          <img id="headshot-img" src="" alt="Alex Henschel" style="width:100%;height:100%;object-fit:cover;display:none"/>
+          <span id="headshot-placeholder" style="font-size:2.5rem">👤</span>
+        </div>
+      </div>
       <div class="hero-card">
         <div class="hc-title">Core Expertise</div>
         <div id="skill-tags">
@@ -224,56 +233,88 @@
     <div class="exp-timeline" id="exp-timeline">
       <div class="exp-item">
         <div class="exp-header">
-          <div><span class="exp-role">Digital Marketing Manager</span> · <span class="exp-company">Boulevard</span></div>
-          <span class="exp-date">2022 – 2026</span>
+          <div>
+            <span class="exp-role">Organic Growth Director</span> · <span class="exp-company">Boulevard</span>
+            <div class="exp-actual-title">Digital Marketing Manager</div>
+          </div>
+          <span class="exp-date">2022-2026</span>
         </div>
-        <p class="exp-desc">Led digital growth, AI-discovery strategy, and web operations across SEO, CRO, content, and acquisition in a high-growth SaaS environment. Reported to CMO and operated as organic growth director.</p>
-        <ul class="exp-bullets">
-          <li>Grew AI share of voice from ~4% to 22% through GEO, structured data, Reddit visibility, and ecosystem discoverability initiatives</li>
-          <li>Led 700+ page website redesign and migration in 4 months — CVR improved from 2.2% to 4.2%, driving a 91% lift in inbound leads</li>
-          <li>Built a high-velocity CRO experimentation program contributing to a 36% compounded lift in organic conversions</li>
-          <li>Managed ~$500K annual operational spend across dev resources, SEO tooling, CMS, experimentation, and vendor relationships</li>
-          <li>Influenced CMO to expand SEO into a broader ecosystem discoverability strategy spanning AI search, PR, social, and video</li>
-        </ul>
+        <p class="exp-desc">Directed the full organic growth function for a high-growth salon and spa SaaS platform, owning SEO, GEO, content strategy, web operations, AI search strategy, and cross-functional digital performance. Reported to the CMO as the single accountable leader across all organic acquisition programs, managing ~$500K in annual operational spend alongside ~$1M in paid media investment and directing 400+ hours/month of external implementation capacity across five agency relationships.</p>
       </div>
       <div class="exp-item">
         <div class="exp-header">
-          <div><span class="exp-role">SEO Manager</span> · <span class="exp-company">2U Inc.</span></div>
-          <span class="exp-date">2016 – 2021</span>
+          <div>
+            <span class="exp-role">SEO Director</span> · <span class="exp-company">2U Inc.</span>
+            <div class="exp-actual-title">SEO Manager</div>
+          </div>
+          <span class="exp-date">2016-2021</span>
         </div>
-        <p class="exp-desc">Led enterprise SEO and digital growth across 30+ university partner websites supporting enrollment and acquisition goals.</p>
-        <ul class="exp-bullets">
-          <li>Drove 14% annual organic growth across Yale, USC, UNC, Syracuse, Baylor, and Rice partnerships</li>
-          <li>Managed and mentored a team of 5 SEO analysts; consistently exceeded quarterly performance goals</li>
-          <li>Grew share of voice from 14% to 29% by launching and scaling third-party review and supporting content sites</li>
-          <li>Became a trusted strategic advisor at Syracuse and Rice — rebuilding stakeholder trust and accelerating approvals</li>
-        </ul>
+        <p class="exp-desc">Led enterprise SEO strategy and team operations across a 30+ site university partner portfolio, including Yale, USC, UNC, Syracuse, Baylor, and Rice. Managed and coached a team of five SEO analysts, owned stakeholder relationships across complex university marketing organizations, and drove portfolio-wide organic acquisition growth across highly competitive higher education search landscapes.</p>
       </div>
       <div class="exp-item">
         <div class="exp-header">
-          <div><span class="exp-role">Marketing Team Lead</span> · <span class="exp-company">Learn</span></div>
-          <span class="exp-date">2015 – 2016</span>
+          <div>
+            <span class="exp-role">Marketing Lead</span> · <span class="exp-company">Learn</span>
+            <div class="exp-actual-title">Coordinator, Marketing Communications</div>
+          </div>
+          <span class="exp-date">2015-2016</span>
         </div>
-        <ul class="exp-bullets">
-          <li>Grew newsletter subscriptions by 80% in 6 months through audience engagement and signup optimization</li>
-          <li>Improved workshop sign-up conversions by 18% through UX and landing page optimization</li>
-        </ul>
+        <p class="exp-desc">Led marketing operations and audience growth for an educational organization, managing integrated campaigns across email, events, social, and digital advertising. Drove an 80% increase in newsletter subscriptions and an 18% lift in workshop sign-up conversions through UX and campaign optimization.</p>
       </div>
       <div class="exp-item">
         <div class="exp-header">
-          <div><span class="exp-role">Marketing Coordinator</span> · <span class="exp-company">Goodwin University</span></div>
-          <span class="exp-date">2013 – 2014</span>
+          <div>
+            <span class="exp-role">Marketing Coordinator</span> · <span class="exp-company">Goodwin University</span>
+            <div class="exp-actual-title">Magnet School Specialist</div>
+          </div>
+          <span class="exp-date">2012-2015</span>
         </div>
-        <ul class="exp-bullets">
-          <li>Supported enrollment marketing, website updates, and campaign coordination for prospective student acquisition</li>
-        </ul>
+        <p class="exp-desc">Supported digital marketing, website operations, and enrollment-focused campaign coordination for a regional university's magnet school programs, focused on prospective student outreach and acquisition.</p>
       </div>
-      <div class="exp-item" style="margin-bottom:0">
-        <div class="exp-header">
-          <div><span class="exp-role">MBA, Management</span> · <span class="exp-company">University of Hartford</span></div>
-          <span class="exp-date">2018</span>
+    </div>
+    <!-- AWARDS -->
+    <div style="margin-top:3rem">
+      <div class="section-label" style="margin-bottom:.5rem">Recognition</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.75rem">
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.85rem 1.1rem;flex:1;min-width:240px">
+          <div style="font-size:.78rem;color:var(--accent2);font-weight:700;margin-bottom:.2rem">🏆 BouleStars Award · Boulevard, 2023</div>
+          <div style="font-size:.82rem;color:var(--muted)">First-ever recipient recognized for leadership, innovation, and successful execution of key organizational initiatives.</div>
         </div>
-        <p class="exp-desc" style="margin-bottom:0">B.S. Business Administration – Marketing · University of Hartford · 2011</p>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.85rem 1.1rem;flex:1;min-width:240px">
+          <div style="font-size:.78rem;color:var(--accent2);font-weight:700;margin-bottom:.2rem">⭐ Crushing-It Award · 2U, 2021</div>
+          <div style="font-size:.82rem;color:var(--muted)">Monthly recognition for outstanding contributions to marketing performance and team success.</div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.85rem 1.1rem;flex:1;min-width:240px">
+          <div style="font-size:.78rem;color:var(--accent2);font-weight:700;margin-bottom:.2rem">💡 Marketing Innovation Competition · 2U, 2020</div>
+          <div style="font-size:.82rem;color:var(--muted)">Led SEO and PPC alignment initiative; findings were adopted and implemented company-wide.</div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+<!-- EDUCATION -->
+<section id="education" style="background:var(--bg);padding:3.5rem 2rem">
+  <div class="section-inner">
+    <div class="section-label">Academic Background</div>
+    <h2 class="section-title">Education</h2>
+    <div class="divider"></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2))"></div>
+        <div style="font-size:1.75rem;margin-bottom:.75rem">🎓</div>
+        <div style="font-size:1rem;font-weight:700;margin-bottom:.3rem">Master of Business Administration</div>
+        <div style="font-size:.9rem;color:var(--accent);font-weight:600;margin-bottom:.4rem">University of Hartford</div>
+        <div style="font-size:.82rem;color:var(--muted);margin-bottom:.3rem">Concentration: Management</div>
+        <div style="display:inline-block;font-size:.75rem;color:var(--muted);background:var(--surface2);padding:.2rem .65rem;border-radius:20px;border:1px solid var(--border)">2018</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent2),var(--accent))"></div>
+        <div style="font-size:1.75rem;margin-bottom:.75rem">🎓</div>
+        <div style="font-size:1rem;font-weight:700;margin-bottom:.3rem">B.S. Business Administration</div>
+        <div style="font-size:.9rem;color:var(--accent);font-weight:600;margin-bottom:.4rem">University of Hartford</div>
+        <div style="font-size:.82rem;color:var(--muted);margin-bottom:.3rem">Major: Marketing</div>
+        <div style="display:inline-block;font-size:.75rem;color:var(--muted);background:var(--surface2);padding:.2rem .65rem;border-radius:20px;border:1px solid var(--border)">2011</div>
       </div>
     </div>
   </div>
@@ -283,33 +324,33 @@
   <div class="section-inner">
     <div class="section-label">Proof Points</div>
     <h2 class="section-title">Success Stories</h2>
-    <p class="section-sub">Real outcomes from real challenges — from AI discovery transformation to enterprise migration and team leadership.</p>
+    <p class="section-sub">Real outcomes from real challenges: AI discovery transformation, enterprise migration, and team leadership.</p>
     <div class="stories-grid" id="stories-grid">
       <div class="story-card">
         <div class="story-meta"><span class="story-company">Boulevard</span></div>
         <div class="story-title">AI Discovery Transformation & Executive Influence</div>
-        <div class="story-excerpt">Recognized a shift in consumer discovery behavior toward AI-generated answers before most organizations adapted. Built and sold a cross-functional AI-discoverability strategy directly to the CMO, reshaping the company's entire acquisition approach.</div>
-        <div class="story-stat">📈 AI Share of Voice: 4% → 22%</div>
+        <div class="story-excerpt">Recognized a shift in consumer discovery behavior toward AI-generated answers before most organizations adapted. Built and sold a cross-functional AI-discoverability strategy directly to the CMO, coordinating 400+ hours of work across teams and reshaping the company's entire acquisition approach.</div>
+        <div class="story-stat">📈 AI SOV: 4% → 22% · Citations: 150 → 1,500 · +35% AI Citations in 90 Days</div>
         <div class="story-tags"><span class="story-tag">AI Search</span><span class="story-tag">GEO</span><span class="story-tag">Executive Influence</span><span class="story-tag">Org Change</span></div>
       </div>
       <div class="story-card">
         <div class="story-meta"><span class="story-company">Boulevard</span></div>
         <div class="story-title">700-Page Website Redesign & Conversion Recovery</div>
-        <div class="story-excerpt">Served as operational PM on a full-scale redesign and migration of 700+ pages — completed in 4 months while maintaining acquisition continuity across active marketing programs.</div>
+        <div class="story-excerpt">Served as operational PM on a full-scale redesign and migration of 700+ pages, completed in 4 months while maintaining acquisition continuity across active marketing programs.</div>
         <div class="story-stat">📈 CVR: 2.2% → 4.2% · +91% Inbound Leads</div>
         <div class="story-tags"><span class="story-tag">Web Migration</span><span class="story-tag">CRO</span><span class="story-tag">Project Leadership</span></div>
       </div>
       <div class="story-card">
         <div class="story-meta"><span class="story-company">Boulevard</span></div>
         <div class="story-title">High-Velocity CRO Experimentation Program</div>
-        <div class="story-excerpt">Built and operationalized a testing framework from the ground up — 5–10 experiments per quarter — including multi-step form redesign that lifted CVR from 8% to 12%.</div>
-        <div class="story-stat">📈 36% Compounded Lift in Organic Conversions</div>
+        <div class="story-excerpt">Built and operationalized a testing framework from the ground up, running 5-10 experiments per quarter. Included a multi-step form redesign that reduced cognitive friction and dramatically improved lead capture efficiency.</div>
+        <div class="story-stat">📈 36% Compounded Lift · Form CVR: 8% → 12% (+50%)</div>
         <div class="story-tags"><span class="story-tag">CRO</span><span class="story-tag">Experimentation</span><span class="story-tag">UX</span></div>
       </div>
       <div class="story-card">
         <div class="story-meta"><span class="story-company">Boulevard</span></div>
         <div class="story-title">Enterprise Digital Operations & Governance</div>
-        <div class="story-excerpt">Built scalable governance systems for web ops, legal compliance, accessibility, QA, and development prioritization — preventing a projected 200+ hour implementation backlog.</div>
+        <div class="story-excerpt">Built scalable governance systems for web ops, legal compliance, accessibility, QA, and development prioritization, preventing a projected 200+ hour implementation backlog.</div>
         <div class="story-stat">⚙️ $500K Annual Operational Budget Managed</div>
         <div class="story-tags"><span class="story-tag">Digital Ops</span><span class="story-tag">Governance</span><span class="story-tag">Compliance</span></div>
       </div>
@@ -321,9 +362,16 @@
         <div class="story-tags"><span class="story-tag">Enterprise SEO</span><span class="story-tag">Team Leadership</span><span class="story-tag">Coaching</span></div>
       </div>
       <div class="story-card">
+        <div class="story-meta"><span class="story-company">Boulevard</span></div>
+        <div class="story-title">AI-First Content Strategy & Conversion Influence</div>
+        <div class="story-excerpt">Evolved content strategy beyond traffic generation into an AI-first discoverability model, scaling to 700+ pages with industry stats hubs, competitor comparisons, and decision-stage content. Implemented AirOps workflows to enable scalable publishing with SME contribution at speed.</div>
+        <div class="story-stat">📈 +50% Blog Conversion Touchpoints in 6 Months</div>
+        <div class="story-tags"><span class="story-tag">Content Strategy</span><span class="story-tag">AI Search</span><span class="story-tag">GEO</span><span class="story-tag">AirOps</span></div>
+      </div>
+      <div class="story-card">
         <div class="story-meta"><span class="story-company">2U Inc.</span></div>
         <div class="story-title">Enterprise Advisory & Relationship Recovery</div>
-        <div class="story-excerpt">Rebuilt fractured stakeholder relationships at Syracuse and Rice by shifting from SEO vendor to trusted strategic advisor — removing referral roadblocks and accelerating approvals.</div>
+        <div class="story-excerpt">Rebuilt fractured stakeholder relationships at Syracuse and Rice by shifting from SEO vendor to trusted strategic advisor, removing referral roadblocks and accelerating approvals.</div>
         <div class="story-stat">🤝 SOV: 14% → 29% across competitive categories</div>
         <div class="story-tags"><span class="story-tag">Stakeholder Trust</span><span class="story-tag">Advisory</span><span class="story-tag">Influence</span></div>
       </div>
@@ -340,7 +388,7 @@
       <div class="tl-card">
         <div class="tl-date">2025</div>
         <div class="tl-title">Why AI Search Changes Everything (And What Most Teams Are Missing)</div>
-        <div class="tl-excerpt">Search fragmentation isn't coming — it's here. Consumer discovery now spans AI answers, Reddit, video, and community platforms. Traditional SEO programs built for rankings are being left behind.</div>
+        <div class="tl-excerpt">Search fragmentation is here. Consumer discovery now spans AI answers, Reddit, video, and community platforms. Traditional SEO programs built for rankings are being left behind.</div>
         <a class="tl-read" href="#">Read More →</a>
       </div>
       <div class="tl-card">
@@ -352,7 +400,7 @@
       <div class="tl-card">
         <div class="tl-date">2024</div>
         <div class="tl-title">Building AI-Readable Content at Scale</div>
-        <div class="tl-excerpt">Structured data, entity optimization, and LLM citation patterns — a practical playbook for making your content visible in the next generation of search experiences.</div>
+        <div class="tl-excerpt">Structured data, entity optimization, and LLM citation patterns: a practical playbook for making your content visible in the next generation of search experiences.</div>
         <a class="tl-read" href="#">Read More →</a>
       </div>
     </div>
@@ -368,30 +416,60 @@
       <div class="tool-card">
         <div class="tool-icon">🤖</div>
         <div class="tool-name">GEO Audit Agent</div>
-        <div class="tool-desc">Automated agent that analyzes a website's AI-discoverability posture — checking structured data, entity coverage, LLM citation potential, and content readability for AI systems.</div>
-        <div class="tool-tags"><span class="tool-tag">GEO</span><span class="tool-tag">AI Search</span><span class="tool-tag">Automation</span></div>
+        <div class="tool-desc">Automated agent that analyzes a website's AI-discoverability posture, checking structured data, entity coverage, LLM citation potential, and content readability for AI systems like ChatGPT and Perplexity.</div>
+        <div class="tool-tags"><span class="tool-tag">GEO</span><span class="tool-tag">AI Search</span><span class="tool-tag">Claude</span></div>
         <div class="tool-status live">Live</div>
       </div>
       <div class="tool-card">
         <div class="tool-icon">📊</div>
         <div class="tool-name">Content Performance Classifier</div>
-        <div class="tool-desc">AI workflow built with AirOps that classifies content by funnel stage, conversion influence, and AI-retrieval potential — enabling smarter editorial prioritization.</div>
-        <div class="tool-tags"><span class="tool-tag">Content</span><span class="tool-tag">Analytics</span><span class="tool-tag">AirOps</span></div>
+        <div class="tool-desc">AirOps workflow that classifies content by funnel stage, conversion influence, and AI-retrieval potential, enabling smarter editorial prioritization at scale with SME contribution velocity.</div>
+        <div class="tool-tags"><span class="tool-tag">AirOps</span><span class="tool-tag">Content</span><span class="tool-tag">Analytics</span></div>
         <div class="tool-status live">Live</div>
       </div>
       <div class="tool-card">
         <div class="tool-icon">⚡</div>
         <div class="tool-name">SEO Brief Generator</div>
-        <div class="tool-desc">Automated content brief generator that pulls search intent data, competitor gaps, and AI-answer patterns to produce publication-ready briefs in minutes.</div>
-        <div class="tool-tags"><span class="tool-tag">SEO</span><span class="tool-tag">Content Ops</span><span class="tool-tag">AI</span></div>
+        <div class="tool-desc">Automated content brief generator that pulls search intent data, Semrush/Ahrefs gap analysis, and AI-answer patterns to produce publication-ready briefs in minutes.</div>
+        <div class="tool-tags"><span class="tool-tag">SEO</span><span class="tool-tag">Semrush</span><span class="tool-tag">AI</span></div>
         <div class="tool-status wip">In Development</div>
       </div>
       <div class="tool-card">
         <div class="tool-icon">🔍</div>
         <div class="tool-name">Competitor Comparison Analyzer</div>
-        <div class="tool-desc">Scrapes and analyzes competitor comparison pages to surface positioning gaps, keyword opportunities, and AI-citation angles for new comparison content.</div>
-        <div class="tool-tags"><span class="tool-tag">Competitive Intel</span><span class="tool-tag">SEO</span><span class="tool-tag">Research</span></div>
+        <div class="tool-desc">Scrapes and analyzes competitor comparison pages to surface positioning gaps, keyword opportunities, and AI-citation angles. Built with Clay and Claude to output structured research briefs.</div>
+        <div class="tool-tags"><span class="tool-tag">Clay</span><span class="tool-tag">Competitive Intel</span><span class="tool-tag">SEO</span></div>
         <div class="tool-status wip">In Development</div>
+      </div>
+    </div>
+    <!-- TECH STACK -->
+    <div style="margin-top:3rem">
+      <div class="section-label" style="margin-bottom:1rem">Tech Stack</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem">
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem">
+          <div style="font-size:.72rem;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:.5rem">AI & Agentic</div>
+          <div style="font-size:.82rem;color:var(--muted);line-height:1.8">Claude · ChatGPT · AirOps · Clay · Perplexity</div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem">
+          <div style="font-size:.72rem;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:.5rem">AI Visibility & SEO</div>
+          <div style="font-size:.82rem;color:var(--muted);line-height:1.8">Profound · Semrush · Ahrefs · Search Console · Screaming Frog</div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem">
+          <div style="font-size:.72rem;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:.5rem">Analytics</div>
+          <div style="font-size:.82rem;color:var(--muted);line-height:1.8">GA4 · BigQuery · Data Studio · GTM · Data Layer</div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem">
+          <div style="font-size:.72rem;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:.5rem">CRO & Experimentation</div>
+          <div style="font-size:.82rem;color:var(--muted);line-height:1.8">Optimizely · Hotjar · Unbounce</div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem">
+          <div style="font-size:.72rem;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:.5rem">CMS & Web</div>
+          <div style="font-size:.82rem;color:var(--muted);line-height:1.8">Webflow · Sanity · WordPress · Contentful</div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem">
+          <div style="font-size:.72rem;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:.5rem">Compliance & Technical</div>
+          <div style="font-size:.82rem;color:var(--muted);line-height:1.8">Osano · Regex · Python · VS Code</div>
+        </div>
       </div>
     </div>
   </div>
@@ -402,7 +480,7 @@
     <div class="contact-inner">
       <div class="section-label">Let's Talk</div>
       <h2 class="section-title">Get In Touch</h2>
-      <p class="section-sub">Whether you're looking for a marketing leader, want to collaborate, or just want to talk AI search strategy — I'd love to connect.</p>
+      <p class="section-sub">Whether you're looking for a marketing leader, want to collaborate, or just want to talk AI search strategy, I'd love to connect.</p>
       <div class="contact-form">
         <div class="form-row">
           <div class="form-group"><label>First Name</label><input type="text" id="fname" placeholder="Alex"/></div>
